@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+
+    <title>Usuarios</title>
+</head>
+
+<body>
+
+    <nav class="navbar is-light">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item has-text-weight-bold">
+                    Usuarios
+                </a>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <a class="button is-primary" href="../index.html">
+                        <strong>Home</strong>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="section">
+        <div class="container">
+
+            <div class="columns is-centered">
+                <div class="column is-6">
+
+                    <div class="box">
+
+
+                        <h1 class="title has-text-centered has-text-primary">
+                            Crear Cuenta
+                        </h1>
+
+                        <hr>
+
+                        <form>
+
+
+                            <div class="field">
+                                <label class="label">Nombre completo</label>
+                                <div class="control">
+                                    <input class="input is-primary" type="text" placeholder="Ingrese su nombre completo"
+                                        required>
+                                </div>
+                            </div>
+
+
+                            <div class="field">
+                                <label class="label">Correo electrónico</label>
+                                <div class="control">
+                                    <input class="input is-link" type="email" placeholder="Ingrese su correo" required>
+                                </div>
+                            </div>
+
+
+                            <div class="field">
+                                <label class="label">Número celular</label>
+                                <div class="control">
+                                    <input class="input is-info" type="tel" placeholder="Ingrese su número" required>
+                                </div>
+                            </div>
+
+
+                            <div class="field">
+                                <label class="label">Género</label>
+
+                                <div class="control">
+                                    <div class="select is-success is-fullwidth">
+                                        <select required>
+                                            <option value="">Seleccione una opción</option>
+                                            <option>Masculino</option>
+                                            <option>Femenino</option>
+                                            <option>Otro</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="field">
+                                <label class="label">Fecha de nacimiento</label>
+                                <div class="control">
+                                    <input class="input is-warning" type="date" required>
+                                </div>
+                            </div>
+
+
+                            <div class="field">
+                                <label class="label">Dirección</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="Ingrese su dirección">
+                                </div>
+                            </div>
+
+
+                            <div class="field">
+                                <label class="label">Contraseña</label>
+                                <div class="control">
+                                    <input class="input is-danger" type="password" placeholder="Ingrese una contraseña"
+                                        required>
+                                </div>
+                            </div>
+
+
+                            <div class="field is-grouped is-grouped-centered mt-5">
+
+                                <div class="control">
+                                    <button class="button is-primary" type="submit">
+                                        Registrarse
+                                    </button>
+                                </div>
+
+                                
+                                
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+
+</html>
