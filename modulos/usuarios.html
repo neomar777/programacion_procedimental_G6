@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
-
-    <title>Usuarios</title>
 </head>
 
 <body>
@@ -30,7 +29,6 @@
         </div>
     </nav>
 
-
     <section class="section">
         <div class="container">
 
@@ -39,93 +37,83 @@
 
                     <div class="box">
 
-
                         <h1 class="title has-text-centered has-text-primary">
                             Crear Cuenta
                         </h1>
 
                         <hr>
 
-                        <form>
-
+                        <form action="#" method="POST">
 
                             <div class="field">
                                 <label class="label">Nombre completo</label>
                                 <div class="control">
-                                    <input class="input is-primary" type="text" placeholder="Ingrese su nombre completo"
-                                        required>
+                                    <input class="input is-primary" type="text" id="nombre_completo"
+                                        placeholder="Ingrese su nombre completo" required>
                                 </div>
                             </div>
-
 
                             <div class="field">
                                 <label class="label">Correo electrónico</label>
                                 <div class="control">
-                                    <input class="input is-link" type="email" placeholder="Ingrese su correo" required>
+                                    <input class="input is-link" type="email" id="correo_electronico"
+                                        placeholder="Ingrese su correo" required>
                                 </div>
                             </div>
-
 
                             <div class="field">
                                 <label class="label">Número celular</label>
                                 <div class="control">
-                                    <input class="input is-info" type="tel" placeholder="Ingrese su número" required>
+                                    <input class="input is-info" type="tel" id="numero_celular"
+                                        placeholder="Ingrese su número" required>
                                 </div>
                             </div>
 
-
                             <div class="field">
                                 <label class="label">Género</label>
-
                                 <div class="control">
                                     <div class="select is-success is-fullwidth">
-                                        <select required>
+                                        <select id="genero" required>
                                             <option value="">Seleccione una opción</option>
-                                            <option>Masculino</option>
-                                            <option>Femenino</option>
-                                            <option>Otro</option>
+                                            <option value="Masculino">Masculino</option>
+                                            <option value="Femenino">Femenino</option>
+                                            <option value="Otro">Otro</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
 
-
                             <div class="field">
                                 <label class="label">Fecha de nacimiento</label>
                                 <div class="control">
-                                    <input class="input is-warning" type="date" required>
+                                    <input class="input is-warning" type="date" id="fecha_nacimiento" required>
                                 </div>
                             </div>
-
 
                             <div class="field">
                                 <label class="label">Dirección</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="Ingrese su dirección">
-                                </div>
-                            </div>
-
-
-                            <div class="field">
-                                <label class="label">Contraseña</label>
-                                <div class="control">
-                                    <input class="input is-danger" type="password" placeholder="Ingrese una contraseña"
+                                    <input class="input" type="text" id="direccion" placeholder="Ingrese su dirección"
                                         required>
                                 </div>
                             </div>
 
+                            <div class="field">
+                                <label class="label">Contraseña</label>
+                                <div class="control">
+                                    <input class="input is-danger" type="password" id="contrasena"
+                                        placeholder="Ingrese una contraseña" minlength="8" required>
+                                </div>
+                            </div>
 
                             <div class="field is-grouped is-grouped-centered mt-5">
-
                                 <div class="control">
                                     <button class="button is-primary" type="submit">
                                         Registrarse
                                     </button>
                                 </div>
 
-                                
-                                
-
+                               
                             </div>
 
                         </form>

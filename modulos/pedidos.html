@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css">
+</head>
+<body>
+
+     <div class="navbar-end">
+                <div class="navbar-item">
+                    <a class="button is-primary" href="../index.html">
+                        <strong>Home</strong>
+                    </a>
+                </div>
+            </div>
+    <section class="section">
+        <div class="container">
+
+            <h1 class="title has-text-centered">PEDIDOS</h1>
+            <hr>
+
+            <div class="box">
+
+                <form id="formPedido">
+
+                    <div class="field">
+                        <label class="label">Nombre del Cliente</label>
+                        <div class="control">
+                            <input class="input" type="text" id="cliente" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Teléfono</label>
+                        <div class="control">
+                            <input class="input" type="tel" id="telefono" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Producto</label>
+                        <div class="control">
+                            <div class="select is-fullwidth">
+                                <select id="producto" required>
+                                    <option value="">Seleccione un producto</option>
+                                    <option>Churros</option>
+                                    <option>Quesillo</option>
+                                    <option>Torta Tres Leches</option>
+                                    <option>Marquesa de Chocolate</option>
+                                    <option>Torta de Chocolate</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Cantidad</label>
+                        <div class="control">
+                            <input class="input" type="number" id="cantidad" min="1" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Dirección de Entrega</label>
+                        <div class="control">
+                            <textarea class="textarea" id="direccion" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label">Fecha del Pedido</label>
+                        <div class="control">
+                            <input class="input" type="date" id="fecha" required>
+                        </div>
+                    </div>
+
+                    <div class="field has-text-centered">
+                        <button class="button is-primary" type="submit">
+                            Registrar Pedido
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+      
+
+          
+    </script>
+
+</body>
+</html>
