@@ -1,50 +1,91 @@
-    let cliente = document.getElementById("cliente").value.trim();
+function ValidarDatos() {
+    let nombre = document.getElementById("cliente").value.trim();
     let telefono = document.getElementById("telefono").value.trim();
-    let email = document.getElementById("email").value.trim();
-    let producto = document.getElementById("producto").value.trim();
-    let pedido = document.getElementById("pedido").value.trim();
+    let producto = document.getElementById("producto").value;
     let cantidad = document.getElementById("cantidad").value.trim();
     let direccion = document.getElementById("direccion").value.trim();
-    let metodo_pago = document.getElementById("metodo_pago").value.trim();
-    let fecha = document.getElementById("fecha").value.trim();
+    let metodo_pago = document.getElementById("metodo_pago").value;
 
-    function ValidarDatos() {
-
-    if (
-        direccion == "" ||
-        telefono == "" ||
-        email == "" ||
-        metodo_pago == "" ||
-        pedido == "" ||
-        nombre == "" ||
-        referencias == ""
-    ) {
-        alert("Ingrese todos los datos");
+    if (!nombre || !telefono || !producto || !cantidad || !direccion || !metodo_pago) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Campos Incompletos",
+            showConfirmButton: false,
+            timer: 1500
+        });
         return;
     }
 
+    console.log(
+        `Información del pedido:
+${nombre}
+${telefono}
+${producto}
+${cantidad}
+${direccion}
+${metodo_pago}`
+    );
 
-    if (isNaN(telefono)) {
-        alert("El teléfono no puede contener letras");
+    if (!/^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+$/.test(nombre)) {
+        Swal.fire({
+            title: "El nombre debe contener solo letras",
+            icon: "error"
+        });
         return;
     }
 
-
-    if (!email.includes("@")) {
-        alert("El email debe contener @");
+    if (!/^\d+$/.test(telefono)) {
+        Swal.fire({
+            title: "El teléfono debe contener solo números",
+            icon: "error"
+        });
         return;
     }
 
-
-    if (/\d/.test(metodo_pago)) {
-        alert("El método de pago no puede contener números");
+    if (!/^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+$/.test(producto)) {
+        Swal.fire({
+            title: "El producto debe contener solo letras",
+            icon: "error"
+        });
         return;
     }
 
-    if (/\d/.test(nombre)) {
-        alert("El nombre no puede contener números");
+    if (!/^\d+$/.test(cantidad)) {
+        Swal.fire({
+            title: "La cantidad debe contener solo números",
+            icon: "error"
+        });
         return;
     }
 
-    alert("Pedido registrado correctamente");
+    if (!/^[a-zA-Z0-9ÁÉÍÓÚáéíóúÑñ\s#.,\-\/]+$/.test(direccion)) {
+        Swal.fire({
+            title: "Ingrese una dirección válida",
+            icon: "error"
+        });
+        return;
+    }
+
+    if (!/^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+$/.test(metodo_pago)) {
+        Swal.fire({
+            title: "El método de pago debe contener solo letras",
+            icon: "error"
+        });
+        return;
+    }
+
+    Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Datos registrados correctamente",
+        showConfirmButton: false,
+        timer: 1500
+    });
+
 }
+
+document.getElementById("btnRegistrar").addEventListener("click", function (e) {
+    e.preventDefault();
+    ValidarDatos();
+});

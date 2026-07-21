@@ -1,59 +1,90 @@
+function ValidarDatos() {
     let nombre = document.getElementById("nombre_completo").value.trim();
     let correo = document.getElementById("correo_electronico").value.trim();
     let celular = document.getElementById("numero_celular").value.trim();
-    let genero = document.getElementById("genero").value.trim();
+    let genero = document.getElementById("genero").value;
     let fecha = document.getElementById("fecha_nacimiento").value;
     let direccion = document.getElementById("direccion").value.trim();
-    let contrasena = document.getElementById("contrasena").value.trim();
+    let contrasena = document.getElementById("contrasena").value;
 
-    let fecha = new Date(document.getElementById("fecha").value);
-
-    function ValidarDatos() {
-    if (
-        nombre == "" ||
-        correo == "" ||
-        celular == "" ||
-        genero == "" ||
-        fecha == "" ||
-        direccion == "" ||
-        contrasena == ""
-    ) {
-        alert("Ingrese todos los datos");
+    if (!nombre || !correo || !celular || !genero || !fecha || !direccion || !contrasena) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Campos Incompletos",
+            showConfirmButton: false,
+            timer: 1500
+        });
         return;
     }
 
-    if (/\d/.test(nombre)) {
-        alert("El nombre no puede contener números");
+    console.log(
+        `Información del usuario:
+${nombre}
+${correo}
+${celular}
+${genero}
+${fecha}
+${direccion}
+${contrasena}`
+    );
+
+    
+    if (!/^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s]+$/.test(nombre)) {
+        Swal.fire({
+            title: "El nombre debe contener solo letras",
+            icon: "error"
+        });
         return;
     }
 
-    if (!correo.includes("@")) {
-        alert("El correo debe contener @");
+    
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo)) {
+        Swal.fire({
+            title: "Ingrese un correo electrónico válido",
+            icon: "error"
+        });
         return;
     }
 
-    if (isNaN(celular)) {
-        alert("El celular no puede contener letras");
+   
+    if (!/^\d+$/.test(celular)) {
+        Swal.fire({
+            title: "El celular debe contener solo números",
+            icon: "error"
+        });
         return;
     }
 
-    if (celular.length > 10) {
-        alert("El celular no puede tener más de 10 dígitos");
+    
+    if (!/^[a-zA-Z0-9ÁÉÍÓÚáéíóúÑñ\s#.,\-\/]+$/.test(direccion)) {
+        Swal.fire({
+            title: "Ingrese una dirección válida",
+            icon: "error"
+        });
         return;
     }
 
-    if (isNaN(Date.parse(fecha))) {
-        alert("Ingrese una fecha válida");
+    
+    if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/.test(contrasena)) {
+        Swal.fire({
+            title: "La contraseña debe tener mínimo 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial",
+            icon: "error"
+        });
         return;
     }
 
-    if (contrasena.length > 8) {
-        alert("La contraseña debe tener máximo 8 caracteres");
-        return;
-    }
-    if(fecha >= getDate()){
-        console.log("No se acepta fecha mayores a la actual")
-    }
+    Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Información guardada correctamente",
+        showConfirmButton: false,
+        timer: 1500
+    });
 
-    alert("Datos registrados correctamente");
 }
+
+document.getElementById("btnRegistrar").addEventListener("click", function (e) {
+    e.preventDefault();
+    ValidarDatos();
+});
